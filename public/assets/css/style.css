@@ -1,0 +1,139 @@
+
+.page-wrapper {
+    background-color: #ffffff;
+}
+
+.boxed .page-wrapper {
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    -webkit-box-shadow: 0px 0px 10px #cacaca;
+    box-shadow: 0px 0px 10px #cacaca;
+}
+
+.boxed.transparent-page-wrapper .page-wrapper {
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.pattern-1 .page-wrapper,
+.pattern-2 .page-wrapper,
+.pattern-5 .page-wrapper,
+.pattern-7 .page-wrapper,
+.pattern-9 .page-wrapper {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+* Small devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+    .boxed .page-wrapper {
+        width: 750px;
+    }
+}
+
+/* Medium devices (desktops, tablets, 992px and up) */
+
+@media (min-width: 992px) {
+    .boxed .page-wrapper {
+        width: 970px;
+    }
+}
+
+/* Large devices (Large desktops 1200px and up) */
+
+@media (min-width: 1200px) {
+    .boxed .page-wrapper {
+        width: 1170px;
+    }
+}
+
+.modal-open .page-wrapper {
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
+
+
+#synth-row {
+	background-color: #141f1f;
+	padding-left: 100px;
+}
+
+#keyboard {
+	margin-left: 48px;
+}
+
+#controlrow {
+	background-color: #e0ebeb;
+}
+
+#octavectr {
+	border: solid 1px #141f1f;
+	background-color: #466d6d;
+	border-radius: 5px;
+}
+
+.octavebtn {
+	margin-left:15px;
+	border: solid 1px #a2c3c3;
+}
+
+#octavecol {
+	margin-left: 30px;
+	margin-top: 58px;
+}
+
+#octavedisplay {
+	background-color: #c1d7d7;
+	font-size: small;
+	border: solid 1px #a2c3c3;
+}
+
+#oscillator1 {
+	border: solid 1px #141f1f;
+	background-color: #1a53ff;
+	border-radius: 5px;
+}
+
+#oscillator2 {
+	border: solid 1px #141f1f;
+	background-color: #9966ff;
+	border-radius: 5px;
+}
+
+#oscillator3 {
+	border: solid 1px #141f1f;
+	background-color: #e60000;
+	border-radius: 5px;
+}
+
+#oscnum {
+	color: #ffffff;
+}
+
+#wflabel {
+	color: #ffffff;
+}
+
+#osctype{
+	background-color: #c1d7d7;
+	font-size: small;
+	border: solid 1px #a2c3c3;
+	width: 50%;
+	height: 35%;
+	border-radius: 5px;
+}
+
+
+.namerow {
+	width:70%;
+}
+
+.namecol {
+	width: 50%;
+}

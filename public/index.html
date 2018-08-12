@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zxx">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Vynthesizer</title>
+        <meta name="description" content="Cannas Edoardo Daniele | SASP project a.y. 2017/18">
+        <meta name="author" content="Cannas Edoardo Daniele">
+        
+        <!-- Bootstrap core CSS-->
+        <link href="assets/boostrap/css/bootstrap.css" rel="stylesheet">
+        <!-- Font Awesome CSS -->
+        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+        <!--Piano keyboard CSS file -->
+        <link rel="stylesheet" href="assets/css/Piano-Keyboard.css">
+        <!--MSDropdown CSS files -->
+        <link rel="stylesheet" type="text/css" href="assets/css/dd.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/skin2.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/sprite.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/flags.css">
+        <!--CSS custom-->
+        <link rel="stylesheet" href="assets/css/style.css">
+    
+    </head>
+    <body>
+        
+        <div id="page-wrapper">
+            <div id="page-start">
+                <section class="main-container">
+                        <div class="row" id="display">
+                        </div>
+                        <div class="row" id="controlrow">
+                            <div class="col-xl-1" id="octavecol">
+                                <div class="container" id="octavectr">
+                                        <button  type="button" class="btn btn-secondary btn-sm octavebtn" id="octaveup" oct="0">
+                                            <i class="fa fa-angle-up" aria-hidden="true"></i>
+                                        </button>
+                                        <div class="panel panel-default">
+                                            <div class="panel-body" id="octavedisplay">Octaves: C0 - B2</div>
+                                        </div>
+                                        <button  type="button" class="btn btn-secondary btn-sm octavebtn" id="octavedown" oct="0">
+                                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                        </button>
+                                </div>
+                            </div>
+                            <div class="col-xl-3" id="osc1col">
+                                <div class="container" id="oscillator1">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="row">
+                                                    <div class="col-xl-12">
+                                                        <h5 id="oscnum">Oscillator 1</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12">
+                                                        <select name="waveforms1" class="waveforms" id="waveforms1" oscillator=1 style="width: 104px; font-size: x-small;" onkeydown="IgnoreAlpha(event);">
+                                                                    <option value="sine" data-image="assets/images/icons/sineicon2.gif" oscillator=1>Sine</option>
+                                                                    <option value="square" data-image="assets/images/icons/squareicon2.gif" style="font-size: x-small;" oscillator=1>Square</option>
+                                                                    <option value="triangle" data-image="assets/images/icons/tricon2.gif" oscillator=1>Triangle</option>
+                                                                    <option value="sawtooth" data-image="assets/images/icons/swticon2.gif" oscillator=1>Sawtooth</option>
+                                                                </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-6">
+                                                        <p style="color: white;">Gain</p>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <p style="color: white;">Phase</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-6" id="gainknob1"></div>
+                                                    <div class="col-xl-6" id="phaseknob1"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-4">
+                                                        <p style="color: white; font-size:small;">Par1</p>
+                                                    </div>
+                                                    <div class="col-xl-4">
+                                                        <p style="color: white; font-size:small;">Par2</p>
+                                                    </div>
+                                                    <div class="col-xl-4">
+                                                        <p style="color: white; font-size:small;">Par3</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-4" id="par1knob1" partial=1></div>
+                                                    <div class="col-xl-4" id="par2knob1" partial=2></div>
+                                                    <div class="col-xl-4" id="par3knob1" partial=3></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="row">
+                                                    <div class="col-xl-6" id="attackcol1">
+                                                        <p style="color: white; font-size: small">Attack</p>
+                                                        <div id="attackknob1"></div>
+                                                        <select name="attackwaveforms1" class="attackwaveforms" id="attackwaveforms1" oscillator=1 style="width: 60px; font-size: x-small;" onkeydown="IgnoreAlpha(event);">
+                                                            <option value="linear" data-image="assets/images/icons/lineicon.gif" oscillator=1>Lin</option>
+                                                            <option value="exponential" data-image="assets/images/icons/expicon.gif" oscillator=1>Exp</option>
+                                                            <option value="sine" data-image="assets/images/icons/sineicon3.gif" oscillator=1>Sin</option>
+                                                            <option value="cosine" data-image="assets/images/icons/cosineicon.gif" oscillator=1>Cos</option>
+                                                            <option value="bounce" data-image="assets/images/icons/bounceicon.gif" oscillator=1>Bounce</option>
+                                                            <option value="ripple" data-image="assets/images/icons/rippleicon.gif" oscillator=1>Ripple</option>
+                                                            <option value="step" data-image="assets/images/icons/squareicon2.gif" oscillator=1>Step</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-xl-6" id="releasecol1">
+                                                        <p style="color: white; font-size: small">Release</p>
+                                                        <div id="releaseknob1"></div>
+                                                        <select name="releasewaveforms1" class="releasewaveforms" id="releasewaveforms1" oscillator=1 style="width: 60px; font-size: x-small;" onkeydown="IgnoreAlpha(event);">
+                                                            <option value="linear" data-image="assets/images/icons/lineicon.gif" oscillator=1>Lin</option>
+                                                            <option value="exponential" data-image="assets/images/icons/expicon.gif" oscillator=1>Exp</option>
+                                                            <option value="sine" data-image="assets/images/icons/sineicon3.gif" oscillator=1>Sin</option>
+                                                            <option value="cosine" data-image="assets/images/icons/cosineicon.gif" oscillator=1>Cos</option>
+                                                            <option value="bounce" data-image="assets/images/icons/bounceicon.gif" oscillator=1>Bounce</option>
+                                                            <option value="ripple" data-image="assets/images/icons/rippleicon.gif" oscillator=1>Ripple</option>
+                                                            <option value="step" data-image="assets/images/icons/squareicon2.gif" oscillator=1>Step</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-6" id="decaycol1">
+                                                        <p style="color: white; font-size: small">Decay</p>
+                                                        <div id="decayknob1"></div>
+                                                    </div>
+                                                    <div class="col-xl-6" id="sustaincol1">
+                                                        <p style="color: white; font-size: small">Sustain</p>
+                                                        <div id="sustainknob1"></div>
+                                                    </div>
+                                                </div>   
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3" id="osc2col">
+                                    <div class="container" id="oscillator2">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="row">
+                                                    <div class="col-xl-12">
+                                                        <h5 id="oscnum">Oscillator 2</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12">
+                                                        <select name="waveforms2" class="waveforms" id="waveforms2" oscillator=2 style="width: 104px; font-size: x-small;" onkeydown="IgnoreAlpha(event);">
+                                                                    <option value="sine" data-image="assets/images/icons/sineicon2.gif" oscillator=2>Sine</option>
+                                                                    <option value="square" data-image="assets/images/icons/squareicon2.gif" style="font-size: x-small;" oscillator=2>Square</option>
+                                                                    <option value="triangle" data-image="assets/images/icons/tricon2.gif" oscillator=2>Triangle</option>
+                                                                    <option value="sawtooth" data-image="assets/images/icons/swticon2.gif" oscillator=2>Sawtooth</option>
+                                                                </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-6">
+                                                        <p style="color: white;">Gain</p>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <p style="color: white;">Phase</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-6" id="gainknob2"></div>
+                                                    <div class="col-xl-6" id="phaseknob2"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-4">
+                                                        <p style="color: white; font-size:small;">Par1</p>
+                                                    </div>
+                                                    <div class="col-xl-4">
+                                                        <p style="color: white; font-size:small;">Par2</p>
+                                                    </div>
+                                                    <div class="col-xl-4">
+                                                        <p style="color: white; font-size:small;">Par3</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-4" id="par1knob2" partial=1></div>
+                                                    <div class="col-xl-4" id="par2knob2" partial=2></div>
+                                                    <div class="col-xl-4" id="par3knob2" partial=3></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="row">
+                                                    <div class="col-xl-6" id="attackcol2">
+                                                        <p style="color: white; font-size: small">Attack</p>
+                                                        <div id="attackknob2"></div>
+                                                        <select name="attackwaveforms2" class="attackwaveforms" id="attackwaveforms2" oscillator=2 style="width: 60px; font-size: x-small;" onkeydown="IgnoreAlpha(event);">
+                                                            <option value="linear" data-image="assets/images/icons/lineicon.gif" oscillator=2>Lin</option>
+                                                            <option value="exponential" data-image="assets/images/icons/expicon.gif" oscillator=2>Exp</option>
+                                                            <option value="sine" data-image="assets/images/icons/sineicon3.gif" oscillator=2>Sin</option>
+                                                            <option value="cosine" data-image="assets/images/icons/cosineicon.gif" oscillator=2>Cos</option>
+                                                            <option value="bounce" data-image="assets/images/icons/bounceicon.gif" oscillator=2>Bounce</option>
+                                                            <option value="ripple" data-image="assets/images/icons/rippleicon.gif" oscillator=2>Ripple</option>
+                                                            <option value="step" data-image="assets/images/icons/squareicon2.gif" oscillator=2>Step</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-xl-6" id="releasecol2">
+                                                        <p style="color: white; font-size: small">Release</p>
+                                                        <div id="releaseknob2"></div>
+                                                        <select name="releasewaveforms2" class="releasewaveforms" id="releasewaveforms2" oscillator=2 style="width: 60px; font-size: x-small;" onkeydown="IgnoreAlpha(event);">
+                                                            <option value="linear" data-image="assets/images/icons/lineicon.gif" oscillator=2>Lin</option>
+                                                            <option value="exponential" data-image="assets/images/icons/expicon.gif" oscillator=2>Exp</option>
+                                                            <option value="sine" data-image="assets/images/icons/sineicon3.gif" oscillator=2>Sin</option>
+                                                            <option value="cosine" data-image="assets/images/icons/cosineicon.gif" oscillator=2>Cos</option>
+                                                            <option value="bounce" data-image="assets/images/icons/bounceicon.gif" oscillator=2>Bounce</option>
+                                                            <option value="ripple" data-image="assets/images/icons/rippleicon.gif" oscillator=2>Ripple</option>
+                                                            <option value="step" data-image="assets/images/icons/squareicon2.gif" oscillator=2>Step</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-6" id="decaycol2">
+                                                        <p style="color: white; font-size: small">Decay</p>
+                                                        <div id="decayknob2"></div>
+                                                    </div>
+                                                    <div class="col-xl-6" id="sustaincol2">
+                                                        <p style="color: white; font-size: small">Sustain</p>
+                                                        <div id="sustainknob2"></div>
+                                                    </div>
+                                                </div>   
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3" id="osc3col">
+                                    <div class="container" id="oscillator3">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="row">
+                                                    <div class="col-xl-12">
+                                                        <h5 id="oscnum">Oscillator 3</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-12">
+                                                        <select name="waveforms3" class="waveforms" id="waveforms3" oscillator=3 style="width: 104px; font-size: x-small;" onkeydown="IgnoreAlpha(event);">
+                                                                    <option value="sine" data-image="assets/images/icons/sineicon2.gif" oscillator=3>Sine</option>
+                                                                    <option value="square" data-image="assets/images/icons/squareicon2.gif" style="font-size: x-small;" oscillator=3>Square</option>
+                                                                    <option value="triangle" data-image="assets/images/icons/tricon2.gif" oscillator=3>Triangle</option>
+                                                                    <option value="sawtooth" data-image="assets/images/icons/swticon2.gif" oscillator=3>Sawtooth</option>
+                                                                </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-6">
+                                                        <p style="color: white;">Gain</p>
+                                                    </div>
+                                                    <div class="col-xl-6">
+                                                        <p style="color: white;">Phase</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-6" id="gainknob3"></div>
+                                                    <div class="col-xl-6" id="phaseknob3"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-4">
+                                                        <p style="color: white; font-size:small;">Par1</p>
+                                                    </div>
+                                                    <div class="col-xl-4">
+                                                        <p style="color: white; font-size:small;">Par2</p>
+                                                    </div>
+                                                    <div class="col-xl-4">
+                                                        <p style="color: white; font-size:small;">Par3</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-4" id="par1knob3" partial=1></div>
+                                                    <div class="col-xl-4" id="par2knob3" partial=2></div>
+                                                    <div class="col-xl-4" id="par3knob3" partial=3></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="row">
+                                                    <div class="col-xl-6" id="attackcol3">
+                                                        <p style="color: white; font-size: small">Attack</p>
+                                                        <div id="attackknob3"></div>
+                                                        <select name="attackwaveforms3" class="attackwaveforms" id="attackwaveforms3" oscillator=3 style="width: 60px; font-size: x-small;" onkeydown="IgnoreAlpha(event);">
+                                                            <option value="linear" data-image="assets/images/icons/lineicon.gif" oscillator=3>Lin</option>
+                                                            <option value="exponential" data-image="assets/images/icons/expicon.gif" oscillator=3>Exp</option>
+                                                            <option value="sine" data-image="assets/images/icons/sineicon3.gif" oscillator=3>Sin</option>
+                                                            <option value="cosine" data-image="assets/images/icons/cosineicon.gif" oscillator=3>Cos</option>
+                                                            <option value="bounce" data-image="assets/images/icons/bounceicon.gif" oscillator=3>Bounce</option>
+                                                            <option value="ripple" data-image="assets/images/icons/rippleicon.gif" oscillator=3>Ripple</option>
+                                                            <option value="step" data-image="assets/images/icons/squareicon2.gif" oscillator=3>Step</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-xl-6" id="releasecol3">
+                                                        <p style="color: white; font-size: small">Release</p>
+                                                        <div id="releaseknob3"></div>
+                                                        <select name="releasewaveforms3" class="releasewaveforms" id="releasewaveforms3" oscillator=3 style="width: 60px; font-size: x-small;" onkeydown="IgnoreAlpha(event);">
+                                                            <option value="linear" data-image="assets/images/icons/lineicon.gif" oscillator=3>Lin</option>
+                                                            <option value="exponential" data-image="assets/images/icons/expicon.gif" oscillator=3>Exp</option>
+                                                            <option value="sine" data-image="assets/images/icons/sineicon3.gif" oscillator=3>Sin</option>
+                                                            <option value="cosine" data-image="assets/images/icons/cosineicon.gif" oscillator=3>Cos</option>
+                                                            <option value="bounce" data-image="assets/images/icons/bounceicon.gif" oscillator=3>Bounce</option>
+                                                            <option value="ripple" data-image="assets/images/icons/rippleicon.gif" oscillator=3>Ripple</option>
+                                                            <option value="step" data-image="assets/images/icons/squareicon2.gif" oscillator=3>Step</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xl-6" id="decaycol3">
+                                                        <p style="color: white; font-size: small">Decay</p>
+                                                        <div id="decayknob3"></div>
+                                                    </div>
+                                                    <div class="col-xl-6" id="sustaincol3">
+                                                        <p style="color: white; font-size: small">Sustain</p>
+                                                        <div id="sustainknob3"></div>
+                                                    </div>
+                                                </div>   
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="row" id="synth-row">
+                            <div class="col">
+                                <openmusic-piano-keyboard octaves="3" id="keyboard"></openmusic-piano-keyboard>
+                            </div>
+                        </div>
+                </section> 
+            </div>
+        </div>
+        
+        <script src="assets/js/jquery-3.3.1.min.js"></script>
+        <script src="assets/boostrap/js/bootstrap.bundle.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.0.4/math.js"></script>
+        <script src="assets/js/pureknob.js"></script>
+        <script src="assets/js/Tone.min.js"></script>
+        <script src="assets/js/p5.js"></script>
+        <script src="assets/js/p5.Tone.js"></script>
+        <script src="assets/js/Piano-Keyboard.js"></script>
+        <script src="assets/js/jquery.dd.min.js"></script>
+        <script src="assets/js/script.js"></script>
+        <script src="assets/js/sketch.js"></script>
+        <script>
+            //Disable keyboard inputs
+            function IgnoreAlpha(e) {
+
+                    if (!e)
+                    {
+                        e = window.event ;
+                    }
+                    if (e.keyCode >= 65 && e.keyCode <= 90) // A to Z
+                    {
+                         e.returnValue=false;
+                         e.cancel = true;
+                    }
+            };
+        </script>
+        <script>
+            $(document).ready(function() {
+                
+                //Keyboard creation
+                createKeyboard(0);
+                
+                //Oscillators controls creation
+                createOscillatorsControls();
+                
+            });
+        </script>
+    </body>
+    
+</html>

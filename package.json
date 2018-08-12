@@ -1,0 +1,20 @@
+{
+  "name": "vynthesizer",
+  "version": "1.0.0",
+  "description": "Monophonic synthesizers with realtime spectral feature extraction and visualization",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./index.js"
+  },
+  "keywords": [
+    "syntesizer",
+    "visualization"
+  ],
+  "author": "Edoardo Daniele Cannas",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "tone": "^0.12.80"
+  }
+}
