@@ -103,13 +103,13 @@ openmusic-piano-keyboard .key.black[data-octave*="0"]:active, openmusic-piano-ke
 
 openmusic-piano-keyboard .key[data-octave*="1"]:active, openmusic-piano-keyboard .key[data-octave*="1"].active {
 	background: #fff;
-	box-shadow: inset 0px 0px 10px rgba(145, 15, 245, 0.95);
+	box-shadow: inset 0px 0px 10px rgba(0, 255, 0, 0.9);
 }
 
 openmusic-piano-keyboard .key.black[data-octave*="1"]:active, openmusic-piano-keyboard .key.black[data-octave*="1"].active {
 	background: #000;
-	box-shadow: inset 0px 0px 10px rgba(145, 15, 245, 0.95);
-	color: #910FF5;
+	box-shadow: inset 0px 0px 10px rgba(0, 255, 0, 0.9);
+	color: #00ff00;
 }
 
 openmusic-piano-keyboard .key[data-octave*="2"]:active, openmusic-piano-keyboard .key[data-octave*="2"].active {
