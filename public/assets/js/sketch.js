@@ -25,7 +25,7 @@ function setup() {
     for(i=0;i<masterAnalyser.fftSize/2;i++) {
         freqs[i] = i/(masterAnalyser.fftSize/2-1)*audioCtx.sampleRate/2;
     }
-    console.log(freqs);
+    //console.log(freqs);
     gainNode1.connect(analyser1);gainNode1.connect(masterAnalyser);
     gainNode2.connect(analyser2);gainNode2.connect(masterAnalyser);
     gainNode3.connect(analyser3);gainNode3.connect(masterAnalyser);
