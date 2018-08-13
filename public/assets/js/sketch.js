@@ -133,6 +133,8 @@ function waveformPolygon(waveform, radius) {
 
 
 function computeFoldedSpectrum(analyzer) {
+    //compute a normalized and folded version of the spectrum
+    //the normalization follows the one executed by the AnalyserNode following the WebAudio API specification for the getByteFrequencyData method (see https://webaudio.github.io/web-audio-api/#dom-analysernode-getbytefrequencydata)
     var rangeDB = analyzer.maxDecibels - analyzer.minDecibels;
     var floatfrequencydata = new Float32Array(analyzer.fftSize);
     analyzer.getFloatFrequencyData(floatfrequencydata);
