@@ -743,7 +743,7 @@ keyboard.addEventListener('noteoff', function(e) {
 
 octaveup.addEventListener('click', function() {
     range = parseInt($("#octaveup").attr('oct')) +1 ;
-    if (range > 7) {}
+    if (range > 6) {}
     else {
     octaveup.setAttribute("oct",range);
     octavedown.setAttribute("oct",range);
@@ -776,7 +776,7 @@ octaveup.addEventListener('click', function() {
 });
 
 octavedown.addEventListener('click', function(e) {
-    range = parseInt($("#octaveup").attr('oct')) - 1 ;
+    range = parseInt($("#octavedown").attr('oct')) - 1 ;
     if (range < 0) {}
     else {
     octaveup.setAttribute("oct",range);

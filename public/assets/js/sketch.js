@@ -86,7 +86,10 @@ function draw() {
     for (var i=0; i<normFoldSpectrum.length/3;i++) 
     {
         fill(255,normFoldSpectrum[i],0);
-        var x = map(spectralCentroid,0,freqs[freqs.length-1],0,width);
+        var index = (spectralCentroid*masterAnalyser.fftSize/2)/(audioCtx.sampleRate/2);
+        /*console.log(index);
+        console.log(spectralCentroid);*/
+        var x = map(index,0,normFoldSpectrum.length/3,0,width);
         var h = map(normFoldSpectrum[i],0,255,0,height);
         rect(x,height,10,-h);
     }
