@@ -171,7 +171,8 @@ function createOscillatorsControls() {
         var GainKnob2 = pureknob.createKnob(45, 45);
         GainKnob2.setProperty('angleStart', -0.75 * Math.PI);
         GainKnob2.setProperty('angleEnd', 0.75 * Math.PI);
-        GainKnob2.setProperty('colorFG', '#ffffff');
+        GainKnob2.setProperty('colorFG', '#000000');
+        GainKnob2.setProperty('colorBG', '#cccccc');
         GainKnob2.setProperty('trackWidth', 0.4);
         GainKnob2.setProperty('valMin', 0);
         GainKnob2.setProperty('valMax', 10);
@@ -196,7 +197,8 @@ function createOscillatorsControls() {
         var PhaseKnob2 = pureknob.createKnob(45, 45);
         PhaseKnob2.setProperty('angleStart', 0);
         PhaseKnob2.setProperty('angleEnd', 2 * Math.PI);
-        PhaseKnob2.setProperty('colorFG', '#ffffff');
+        PhaseKnob2.setProperty('colorFG', '#000000');
+        PhaseKnob2.setProperty('colorBG', '#cccccc');
         PhaseKnob2.setProperty('trackWidth', 0.4);
         PhaseKnob2.setProperty('valMin', 0);
         PhaseKnob2.setProperty('valMax', 360);
@@ -209,8 +211,10 @@ function createOscillatorsControls() {
         PhaseKnob3.setProperty('valMin', 0);
         PhaseKnob3.setProperty('valMax', 360);
         PhaseKnob3.setValue(0);
-
-        var Armonic1VolumeKnob1 = pureknob.createKnob(25, 25);
+        
+        //Armonic volume knobs
+        //Labels are: armonic#ofarmonic volumeknob#oscillator
+        var Armonic1VolumeKnob1 = pureknob.createKnob(27, 27);
         Armonic1VolumeKnob1.setProperty('angleStart', -0.75 * Math.PI);
         Armonic1VolumeKnob1.setProperty('angleEnd', 0.75 * Math.PI);
         Armonic1VolumeKnob1.setProperty('colorFG', '#ffffff');
@@ -218,15 +222,16 @@ function createOscillatorsControls() {
         Armonic1VolumeKnob1.setProperty('valMin', 0);
         Armonic1VolumeKnob1.setProperty('valMax', 10);
         Armonic1VolumeKnob1.setValue(0);
-        var Armonic1VolumeKnob2 = pureknob.createKnob(25, 25);
+        var Armonic1VolumeKnob2 = pureknob.createKnob(27, 27);
         Armonic1VolumeKnob2.setProperty('angleStart', -0.75 * Math.PI);
         Armonic1VolumeKnob2.setProperty('angleEnd', 0.75 * Math.PI);
-        Armonic1VolumeKnob2.setProperty('colorFG', '#ffffff');
+        Armonic1VolumeKnob2.setProperty('colorFG', '#000000');
+        Armonic1VolumeKnob2.setProperty('colorBG', '#cccccc');
         Armonic1VolumeKnob2.setProperty('trackWidth', 0.4);
         Armonic1VolumeKnob2.setProperty('valMin', 0);
         Armonic1VolumeKnob2.setProperty('valMax', 10);
         Armonic1VolumeKnob2.setValue(0);
-        var Armonic1VolumeKnob3 = pureknob.createKnob(25, 25);
+        var Armonic1VolumeKnob3 = pureknob.createKnob(27, 27);
         Armonic1VolumeKnob3.setProperty('angleStart', -0.75 * Math.PI);
         Armonic1VolumeKnob3.setProperty('angleEnd', 0.75 * Math.PI);
         Armonic1VolumeKnob3.setProperty('colorFG', '#ffffff');
@@ -235,7 +240,7 @@ function createOscillatorsControls() {
         Armonic1VolumeKnob3.setProperty('valMax', 10);
         Armonic1VolumeKnob3.setValue(0);
 
-        var Armonic2VolumeKnob1 = pureknob.createKnob(25, 25);
+        var Armonic2VolumeKnob1 = pureknob.createKnob(27, 27);
         Armonic2VolumeKnob1.setProperty('angleStart', -0.75 * Math.PI);
         Armonic2VolumeKnob1.setProperty('angleEnd', 0.75 * Math.PI);
         Armonic2VolumeKnob1.setProperty('colorFG', '#ffffff');
@@ -243,15 +248,16 @@ function createOscillatorsControls() {
         Armonic2VolumeKnob1.setProperty('valMin', 0);
         Armonic2VolumeKnob1.setProperty('valMax', 10);
         Armonic2VolumeKnob1.setValue(0);
-        var Armonic2VolumeKnob2 = pureknob.createKnob(25, 25);
+        var Armonic2VolumeKnob2 = pureknob.createKnob(27, 27);
         Armonic2VolumeKnob2.setProperty('angleStart', -0.75 * Math.PI);
         Armonic2VolumeKnob2.setProperty('angleEnd', 0.75 * Math.PI);
-        Armonic2VolumeKnob2.setProperty('colorFG', '#ffffff');
+        Armonic2VolumeKnob2.setProperty('colorFG', '#000000');
+        Armonic2VolumeKnob2.setProperty('colorBG', '#cccccc');
         Armonic2VolumeKnob2.setProperty('trackWidth', 0.4);
         Armonic2VolumeKnob2.setProperty('valMin', 0);
         Armonic2VolumeKnob2.setProperty('valMax', 10);
         Armonic2VolumeKnob2.setValue(0);
-        var Armonic2VolumeKnob3 = pureknob.createKnob(25, 25);
+        var Armonic2VolumeKnob3 = pureknob.createKnob(27, 27);
         Armonic2VolumeKnob3.setProperty('angleStart', -0.75 * Math.PI);
         Armonic2VolumeKnob3.setProperty('angleEnd', 0.75 * Math.PI);
         Armonic2VolumeKnob3.setProperty('colorFG', '#ffffff');
@@ -260,7 +266,7 @@ function createOscillatorsControls() {
         Armonic2VolumeKnob3.setProperty('valMax', 10);
         Armonic2VolumeKnob3.setValue(0);
 
-        var Armonic3VolumeKnob1 = pureknob.createKnob(25, 25);
+        var Armonic3VolumeKnob1 = pureknob.createKnob(27, 27);
         Armonic3VolumeKnob1.setProperty('angleStart', -0.75 * Math.PI);
         Armonic3VolumeKnob1.setProperty('angleEnd', 0.75 * Math.PI);
         Armonic3VolumeKnob1.setProperty('colorFG', '#ffffff');
@@ -268,15 +274,16 @@ function createOscillatorsControls() {
         Armonic3VolumeKnob1.setProperty('valMin', 0);
         Armonic3VolumeKnob1.setProperty('valMax', 10);
         Armonic3VolumeKnob1.setValue(0);
-        var Armonic3VolumeKnob2 = pureknob.createKnob(25, 25);
+        var Armonic3VolumeKnob2 = pureknob.createKnob(27, 27);
         Armonic3VolumeKnob2.setProperty('angleStart', -0.75 * Math.PI);
         Armonic3VolumeKnob2.setProperty('angleEnd', 0.75 * Math.PI);
-        Armonic3VolumeKnob2.setProperty('colorFG', '#ffffff');
+        Armonic3VolumeKnob2.setProperty('colorFG', '#000000');
+        Armonic3VolumeKnob2.setProperty('colorBG', '#cccccc');
         Armonic3VolumeKnob2.setProperty('trackWidth', 0.4);
         Armonic3VolumeKnob2.setProperty('valMin', 0);
         Armonic3VolumeKnob2.setProperty('valMax', 10);
         Armonic3VolumeKnob2.setValue(0);
-        var Armonic3VolumeKnob3 = pureknob.createKnob(25, 25);
+        var Armonic3VolumeKnob3 = pureknob.createKnob(27, 27);
         Armonic3VolumeKnob3.setProperty('angleStart', -0.75 * Math.PI);
         Armonic3VolumeKnob3.setProperty('angleEnd', 0.75 * Math.PI);
         Armonic3VolumeKnob3.setProperty('colorFG', '#ffffff');
@@ -297,7 +304,8 @@ function createOscillatorsControls() {
         var AttackKnob2 = pureknob.createKnob(35, 35);
         AttackKnob2.setProperty('angleStart', -0.75 * Math.PI);
         AttackKnob2.setProperty('angleEnd', 0.75 * Math.PI);
-        AttackKnob2.setProperty('colorFG', '#ffffff');
+        AttackKnob2.setProperty('colorFG', '#000000');
+        AttackKnob2.setProperty('colorBG', '#cccccc');
         AttackKnob2.setProperty('trackWidth', 0.4);
         AttackKnob2.setProperty('valMin', 0);
         AttackKnob2.setProperty('valMin', 0);
@@ -325,7 +333,8 @@ function createOscillatorsControls() {
         var DecayKnob2 = pureknob.createKnob(35,35);
         DecayKnob2.setProperty('angleStart', -0.75 * Math.PI);
         DecayKnob2.setProperty('angleEnd', 0.75 * Math.PI);
-        DecayKnob2.setProperty('colorFG', '#ffffff');
+        DecayKnob2.setProperty('colorFG', '#000000');
+        DecayKnob2.setProperty('colorBG', '#cccccc');
         DecayKnob2.setProperty('trackWidth', 0.4);
         DecayKnob2.setProperty('valMin', 0);
         DecayKnob2.setProperty('valMin', 0);
@@ -353,7 +362,8 @@ function createOscillatorsControls() {
         var SustainKnob2 = pureknob.createKnob(35,35);
         SustainKnob2.setProperty('angleStart', -0.75 * Math.PI);
         SustainKnob2.setProperty('angleEnd', 0.75 * Math.PI);
-        SustainKnob2.setProperty('colorFG', '#ffffff');
+        SustainKnob2.setProperty('colorFG', '#000000');
+        SustainKnob2.setProperty('colorBG', '#cccccc');
         SustainKnob2.setProperty('trackWidth', 0.4);
         SustainKnob2.setProperty('valMin', 0);
         SustainKnob2.setProperty('valMin', 0);
@@ -380,7 +390,8 @@ function createOscillatorsControls() {
         var ReleaseKnob2 = pureknob.createKnob(35,35);
         ReleaseKnob2.setProperty('angleStart', -0.75 * Math.PI);
         ReleaseKnob2.setProperty('angleEnd', 0.75 * Math.PI);
-        ReleaseKnob2.setProperty('colorFG', '#ffffff');
+        ReleaseKnob2.setProperty('colorFG', '#000000');
+        ReleaseKnob2.setProperty('colorBG', '#cccccc');
         ReleaseKnob2.setProperty('trackWidth', 0.4);
         ReleaseKnob2.setProperty('valMin', 0);
         ReleaseKnob2.setProperty('valMax',1000);
