@@ -248,7 +248,7 @@ class OMPianoKeyboard extends HTMLElement {
 		component.register('openmusic-piano-keyboard'); // automatic registration
 	}*/
 
-    if ((customElements.get('openmusic-piano-keyboard'))!=undefined) {}
+    if ((customElements.get('openmusic-piano-keyboard'))!== undefined) {}
     else {
         customElements.define('openmusic-piano-keyboard', OMPianoKeyboard);
     }

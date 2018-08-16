@@ -218,10 +218,10 @@ function createKeyboard(range) {
 
 	//
 
-	var component = {};
+	/*var component = {};
 	component.prototype = proto;
 	component.register = function(name) {
-		customElements.define("openmusic-piano-keyboard",component.prototype);
+		window.customElements.define("openmusic-piano-keyboard",component.prototype);
 	};
     //window.customElements.define('component', createKeyboard);
 
@@ -230,7 +230,24 @@ function createKeyboard(range) {
 	} else if(typeof module !== 'undefined' && module.exports) {
 		module.exports = component;
 	} else {
-		customElements.define('openmusic-piano-keyboard',component.prototype); // automatic registration
+		window.customElements.define('openmusic-piano-keyboard',component.prototype); // automatic registration
+	}*/
+    
+    //Custom element registration with V0 API and document-register interface
+    var component = {};
+	component.prototype = proto;
+	component.register = function(name) {
+		document.registerElement(name, {
+			prototype: proto
+		});
+	};
+
+	if(typeof define === 'function' && define.amd) {
+		define(function() { return component; });
+	} else if(typeof module !== 'undefined' && module.exports) {
+		module.exports = component;
+	} else {
+		component.register('openmusic-piano-keyboard'); // automatic registration
 	}
 
 };

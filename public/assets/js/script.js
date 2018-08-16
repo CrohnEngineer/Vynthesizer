@@ -116,8 +116,6 @@ function changeGain(value,oscillatorNum) {
 
 function changeOscParameter(parameter,value,oscillatorNum) {
     var osc = selectOscillator(parseInt(oscillatorNum));
-    console.log(parameter);
-    console.log(value);
     switch (parameter) {
         case 'waveform':
             osc.stop();
