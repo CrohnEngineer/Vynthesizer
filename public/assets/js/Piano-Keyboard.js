@@ -221,9 +221,7 @@ function createKeyboard(range) {
 	var component = {};
 	component.prototype = proto;
 	component.register = function(name) {
-		window.customElements.define(name, {
-			prototype: proto
-		});
+		customElements.define("openmusic-piano-keyboard",component.prototype);
 	};
     //window.customElements.define('component', createKeyboard);
 
@@ -232,7 +230,7 @@ function createKeyboard(range) {
 	} else if(typeof module !== 'undefined' && module.exports) {
 		module.exports = component;
 	} else {
-		component.register('openmusic-piano-keyboard'); // automatic registration
+		customElements.define('openmusic-piano-keyboard',component.prototype); // automatic registration
 	}
 
 };

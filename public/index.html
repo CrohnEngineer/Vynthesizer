@@ -321,7 +321,7 @@
                                 </div>
                         </div>
                         <div class="row" id="synth-row">
-                            <div class="col">
+                            <div class="col" id="keyboardcol">
                                 <openmusic-piano-keyboard octaves="3" id="keyboard"></openmusic-piano-keyboard>
                             </div>
                         </div>
@@ -332,6 +332,7 @@
         <script src="assets/js/jquery-3.3.1.min.js"></script>
         <script src="assets/boostrap/js/bootstrap.bundle.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.0.4/math.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/custom-elements/1.2.0/custom-elements.min.js"></script>
         <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js" defer></script>
         <script src="assets/js/pureknob.js"></script>
         <script src="assets/js/Tone.min.js"></script>
@@ -358,8 +359,9 @@
         <script>
             $(document).ready(function() {
                 
-                //Keyboard creation
-                //createKeyboard(0);
+                //Keyboard creation               
+                
+                
                 
                 //Oscillators controls creation
                 createOscillatorsControls();
