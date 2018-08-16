@@ -1,13 +1,14 @@
-function createKeyboard(range) {
+class OMPianoKeyboard extends HTMLElement {
 	
-	var proto = Object.create(HTMLElement.prototype);
-
-	proto.createdCallback = function() {
-		this.pressedKeys = {};
-		this.keyClass = 'key';
-		this.keyBlackClass = 'key black';
-		this.keyboardLayout = 'ZSXDCVGBHNJMAWERFTYUIKOLPQ1234567890'.split('');
-		this.blackKeys = [ false, true, false, true, false, false, true, false, true, false, true, false ];
+    constructor(range) {
+        
+	   super();
+        
+        this.pressedKeys = {};
+        this.keyClass = 'key';
+        this.keyBlackClass = 'key black';
+        this.keyboardLayout = 'ZSXDCVGBHNJMAWERFTYUIKOLPQ1234567890'.split('');
+        this.blackKeys = [ false, true, false, true, false, false, true, false, true, false, true, false ];
         this.keynotesfrequencies = [16.35, 17.32, 18.35, 19.45, 20.60, 21.83, 23.12, 24.50, 25.96, 27.50, 29.14, 30.87, 32.70, 34.65, 36.71, 38.89, 41.20, 43.65, 46.25, 49, 51.91, 55, 58.27, 61.74, 65.41, 69.30, 73.42, 77.78, 82.41, 87.31, 92.50, 98, 103.83, 110, 116.54, 123.47, 130.81, 138.59, 146.83, 155.56, 164.81, 174.61, 185, 196, 207.65, 220, 233.08, 246.94, 261.63, 277.18, 293.66, 311.13, 329.63, 349.23, 369.99, 392, 415.30, 440, 466.16, 493.88, 523.25, 554.37, 587.33, 622.25, 659.25, 698.46, 739.99, 783.99, 830.61, 880, 932.33, 987.77, 1046.50, 1108.73, 1174.66, 1244.51, 1318.51, 1396.91, 1479.98, 1567.98, 1661.22, 1760, 1864.66, 1975.53, 2093, 2217.46, 2349.32, 2489.02, 2637.02, 2793.83, 2959.96, 3135.96, 3322.44, 3520, 3729.31, 3951.07, 4186.01, 4434.92, 4698.63, 4978.03, 5274.04, 5587.65, 5919.91, 6271.93, 6644.88, 7040, 7458.62, 7902.13];
         if (range==null) {
             this.range=0;
@@ -16,59 +17,52 @@ function createKeyboard(range) {
             this.range=range;
         }
 
-		this.rebuildKeyboard();
-	};
-
-	proto.rebuildKeyboard = function() {
 		this.keys = [];
 		this.numOctaves = this.getAttribute('octaves');
-		initLayout(this);
-	};
 
-	function initLayout(kb) {
 		var blacksDiv;
-		var numBlacks = kb.blackKeys.length;
-        var frequencies = kb.keynotesfrequencies.slice(kb.range*12,kb.numOctaves*12+kb.range*12);
+		var numBlacks = this.blackKeys.length;
+        var frequencies = this.keynotesfrequencies.slice(this.range*12,this.numOctaves*12+this.range*12);
 
-		kb.innerHTML = '';
-		kb.classList.add('keyboard');
+		this.innerHTML = '';
+		this.classList.add('keyboard');
 		
 		blacksDiv = document.createElement('div');
-		kb.appendChild(blacksDiv);
+		this.appendChild(blacksDiv);
 		blacksDiv.className = 'blacks';
 
-		for(var i = 0; i < kb.numOctaves; i++) {
+		for(var i = 0; i < this.numOctaves; i++) {
 
 			for(var j = 0; j < numBlacks; j++) {
 
-				var isBlack = kb.blackKeys[j],
+				var isBlack = this.blackKeys[j],
 					keyDiv = document.createElement( 'div' ),
 					index = j + numBlacks * i,
-					label = kb.keyboardLayout[ index ];
+					label = this.keyboardLayout[ index ];
 
-				keyDiv.className = isBlack ? kb.keyBlackClass : kb.keyClass;
+				keyDiv.className = isBlack ? this.keyBlackClass : this.keyClass;
 				keyDiv.innerHTML = label;
 				keyDiv.dataset.index = index;
                 keyDiv.dataset.notefrequency = frequencies[index];
                 keyDiv.dataset.octave = i;
 
-				keyDiv.addEventListener('mousedown', makeCallback(kb, onDivMouseDown), false);
-				keyDiv.addEventListener('mouseup', makeCallback(kb, onDivMouseUp), false);
+				keyDiv.addEventListener('mousedown', makeCallback(this, onDivMouseDown), false);
+				keyDiv.addEventListener('mouseup', makeCallback(this, onDivMouseUp), false);
 
-				kb.keys.push( keyDiv );
+				this.keys.push( keyDiv );
 
 				if(isBlack) {
 					blacksDiv.appendChild( keyDiv );
 
-					if(j >= 2 && !kb.blackKeys[j - 1] && !kb.blackKeys[j - 2] || (j === 1 && i > 0) ) {
+					if(j >= 2 && !this.blackKeys[j - 1] && !this.blackKeys[j - 2] || (j === 1 && i > 0) ) {
 						keyDiv.classList.add('prevwhite');
 					}
 				} else {
-					kb.appendChild( keyDiv );
+					this.appendChild( keyDiv );
 				}
 
-				var numKeys = kb.keys.length;
-				kb.pressedKeys[numKeys] = false;
+				var numKeys = this.keys.length;
+				this.pressedKeys[numKeys] = false;
 
 			}
 		}
@@ -76,13 +70,13 @@ function createKeyboard(range) {
 		// Even if we set tabIndex=1 here, the browser is smart enough to
 		// let us cycle between keyboards when there's more than one on screen
 		// at the same time, by pressing TAB
-		kb.tabIndex = 1;
-		kb.addEventListener('keydown', makeCallback(kb, onKeyDown), false);
-		kb.addEventListener('keyup', makeCallback(kb, onKeyUp), false);
+		this.tabIndex = 1;
+		this.addEventListener('keydown', makeCallback(this, onKeyDown), false);
+		this.addEventListener('keyup', makeCallback(this, onKeyUp), false);
 	}
 
 	
-	function makeCallback(kb, fn) {
+	makeCallback(kb, fn) {
 
 		var cb = function(e) {
 			fn(kb, e);
@@ -93,7 +87,7 @@ function createKeyboard(range) {
 	}
 
 
-	function onDivMouseDown( keyboard, ev ) {
+	onDivMouseDown( keyboard, ev ) {
 
 		var key = ev.target;
 		dispatchNoteOn( keyboard, key.dataset.index );
@@ -101,7 +95,7 @@ function createKeyboard(range) {
 	}
 
 
-	function onDivMouseUp( keyboard, ev ) {
+	onDivMouseUp( keyboard, ev ) {
 
 		var key = ev.target;
 		dispatchNoteOff( keyboard, key.dataset.index );
@@ -109,7 +103,7 @@ function createKeyboard(range) {
 	}
 
 
-	function onKeyDown( keyboard, e ) {
+	onKeyDown( keyboard, e ) {
 
 		var index = findKeyIndex( keyboard, e );
 
@@ -125,7 +119,7 @@ function createKeyboard(range) {
 	}
 
 
-	function onKeyUp( keyboard, e ) {
+	onKeyUp( keyboard, e ) {
 
 		var index = findKeyIndex( keyboard, e );
 
@@ -138,17 +132,17 @@ function createKeyboard(range) {
 	}
 
 
-	function isKeyPressed(keyboard, index) {
+	isKeyPressed(keyboard, index) {
 		return keyboard.pressedKeys[index];
 	}
 
 
-	function setKeyPressed(keyboard, index, pressed) {
+	setKeyPressed(keyboard, index, pressed) {
 		keyboard.pressedKeys[index] = pressed;
 	}
 
 
-	function findKeyIndex( keyboard, e ) {
+	findKeyIndex( keyboard, e ) {
 
 		var keyCode = e.keyCode || e.which,
 			keyChar = String.fromCharCode( keyCode ),
@@ -158,7 +152,7 @@ function createKeyboard(range) {
 
 	}
     
-    function findKeyFrequency( keyboard, e ) {
+    findKeyFrequency( keyboard, e ) {
 
 		var index = findKeyIndex(keyboard,e);
         var key = keyboard.keys[index];
@@ -168,12 +162,12 @@ function createKeyboard(range) {
 	}
 
 
-	function makeEvent(type, detailData) {
+	makeEvent(type, detailData) {
 		return new CustomEvent(type, { detail: detailData });
 	}
 
 
-	function dispatchNoteOn( keyboard, index ) {
+	dispatchNoteOn( keyboard, index ) {
 
 		var key = keyboard.keys[index],
 			currentClass = key.className;
@@ -196,7 +190,7 @@ function createKeyboard(range) {
 	}
 
 
-	function dispatchNoteOff( keyboard, index ) {
+	dispatchNoteOff( keyboard, index ) {
 
 		var key = keyboard.keys[index];
 
@@ -218,14 +212,14 @@ function createKeyboard(range) {
 
 	//
 
-	var component = {};
+	/*var component = {};
 	component.prototype = proto;
 	component.register = function(name) {
-		window.customElements.define(name, {
+		document.registerElement(name, {
 			prototype: proto
 		});
 	};
-    //window.customElements.define('component', createKeyboard);
+    customElements.define('component', createKeyboard);
 
 	if(typeof define === 'function' && define.amd) {
 		define(function() { return component; });
@@ -233,6 +227,8 @@ function createKeyboard(range) {
 		module.exports = component;
 	} else {
 		component.register('openmusic-piano-keyboard'); // automatic registration
-	}
+	}*/
 
-};
+}
+
+customElements.define('openmusic-piano-keyboard', OMPianoKeyboard);
