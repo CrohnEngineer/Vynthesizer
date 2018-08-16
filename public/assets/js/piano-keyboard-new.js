@@ -1,4 +1,8 @@
 class OMPianoKeyboard extends HTMLElement {
+    
+    /*get octaves() {
+        return this.getAttribute('octaves');
+    }*/
 	
     constructor(range) {
         
@@ -23,6 +27,17 @@ class OMPianoKeyboard extends HTMLElement {
 		var blacksDiv;
 		var numBlacks = this.blackKeys.length;
         var frequencies = this.keynotesfrequencies.slice(this.range*12,this.numOctaves*12+this.range*12);
+        
+        // Even if we set tabIndex=1 here, the browser is smart enough to
+		// let us cycle between keyboards when there's more than one on screen
+		// at the same time, by pressing TAB
+        this.tabIndex = 1;
+        this.addEventListener('keydown', makeCallback(this, onKeyDown), false);
+		this.addEventListener('keyup', makeCallback(this, onKeyUp), false);
+        
+    }
+    
+    connectedCallaback() {
 
 		this.innerHTML = '';
 		this.classList.add('keyboard');
@@ -66,14 +81,7 @@ class OMPianoKeyboard extends HTMLElement {
 
 			}
 		}
-
-		// Even if we set tabIndex=1 here, the browser is smart enough to
-		// let us cycle between keyboards when there's more than one on screen
-		// at the same time, by pressing TAB
-		this.tabIndex = 1;
-		this.addEventListener('keydown', makeCallback(this, onKeyDown), false);
-		this.addEventListener('keyup', makeCallback(this, onKeyUp), false);
-	}
+    }
 
 	
 	makeCallback(kb, fn) {
