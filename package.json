@@ -1,7 +1,8 @@
 {
   "name": "vynthesizer",
   "version": "1.0.0",
-  "description": "Monophonic synthesizers with realtime spectral feature extraction and visualization",
+  "description": "Polyphonic synthesizers with realtime spectral feature extraction and visualization",
+  "homepage": "https://github.com/CrohnEngineer/Vynthesizer/",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,9 +13,8 @@
     "visualization"
   ],
   "author": "Edoardo Daniele Cannas",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.16.3",
-    "tone": "^0.12.80"
   }
 }
