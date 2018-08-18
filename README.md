@@ -19,7 +19,7 @@ While you are playing, the sounds you produce are analyzed in real time to drive
 If you are more interested in how this project has been realized, check this [report](report.pdf).
 
 ## Installation and usage
-The Vynthesizer can be used by simply going to this [link](https://vynthesizer.herokuapp.com/).  
+The Vynthesizer can be used by simply going to this [link](https://vynthesizer.herokuapp.com/). **_The app is not responsive_**, so use it with your PC.  
 If you prefer to run it locally, you can either:
   1. clone the repository, then use **Node.js** to start a server;
   2. download the [public](/public) folder, then simply open the [index](/public/index.html) file with an Internet browser.
