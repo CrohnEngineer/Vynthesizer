@@ -16,10 +16,10 @@ While you are playing, the sounds you produce are analyzed in real time to drive
   2. behind the circles, a little spectrogram shows the spectrum of the three oscillator's sounds;
   3. a little yellow bar, indicates where the majority of energy of the signal lies.
   
-If you are more interested in how this project has been realized, check this [report](report.pdf).
+If you are interested in the details of how this project has been realized, check this [report](report.pdf).
 
 ## Installation and usage
-The Vynthesizer can be used by simply going to this [link](https://vynthesizer.herokuapp.com/). **_The app is not responsive_**, so use it with your PC.  
+The Vynthesizer can be used by simply going to this [link](https://vynthesizer.herokuapp.com/). **_The app is not responsive_**, so use it with your PC (no tablet or smartphone).  
 If you prefer to run it locally, you can either:
   1. clone the repository, then use **Node.js** to start a server;
   2. download the [public](/public) folder, then simply open the [index](/public/index.html) file with an Internet browser.
@@ -28,7 +28,7 @@ If you prefer to run it locally, you can either:
 
 ## Credits and inspirations
 The whole project has been inspired by @mbuccoli 's [VRMusic](https://github.com/mbuccoli/VRmusic).  
-Vynthesizer is mainly build upon [Tone.js](https://tonejs.github.io/) and [p5.js](https://github.com/processing/p5.js), using Javascript, JQuery, HTML5 and Bootstrap4.
+Vynthesizer is mainly build upon [Tone.js](https://tonejs.github.io/) and [p5.js](https://github.com/processing/p5.js), using Javascript, JQuery, HTML5 and Bootstrap 4.
 For what concerns the UI, the keyboard is realized using a slightly modified version of https://github.com/openmusic/piano-keyboard (with the aid of https://github.com/WebReflection/document-register-element library for the Custom Web Components support in Firefox), while the knobs and dropdowns are realized using the following libraries: https://github.com/andrepxx/pure-knob and https://github.com/marghoobsuleman/ms-Dropdown.
 
 ## Issues
