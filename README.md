@@ -14,7 +14,7 @@ It is a simple web synthesizer made of three oscillators with an amplitude envel
 While you are playing, the sounds you produce are analyzed in real time to drive the animations on the display:
   1. the three circles (one for each oscillators) follow the signal's amplitude and waveform;
   2. behind the circles, a little spectrogram shows the spectrum of the three oscillator's sounds;
-  3. a little yellow bar, indicates where the majority of energy of the signal lies.
+  3. a little yellow bar, indicates where the majority of energy of the overall signal lies.
   
 If you are interested in the details of how this project has been realized, check this [report](report.pdf).
 
