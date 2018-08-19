@@ -4,9 +4,10 @@
 
 1. [About](#about)
 2. [Installation and usage](#installation-and-usage)
-3. [Credits and inspirations](#credits-and-inspirations)
-4. [Issues](#issues)
-5. [License](#license)
+3. [Controls](#controls)
+4. [Credits and inspirations](#credits-and-inspirations)
+5. [Issues](#issues)
+6. [License](#license)
 
 ## About
 Vynthesizer is a university project for the course of **[Sound Analysis Synthesis and Processing](https://sites.google.com/site/sasppolimi/)** of the **Computer Science and Engineering - Musical Acoustics** master degree of the **[Politecnico of Milan](https://www.polimi.it/)**.  
@@ -25,6 +26,16 @@ If you prefer to run it locally, you can either:
   2. download the [public](/public) folder, then simply open the [index](/public/index.html) file with an Internet browser.
 
 **_Chrome and Safari_** are recommended, since Mozilla Firefox presents some [issues](#issues).
+
+## Controls
+Here is a short description of what each control does:  
+- *Waveform*: controls the oscillator's main waveform;  
+- *Gain knob*: controls the oscillator's gain, defined as the ratio between the input and output signal (e.g. a gain of 1 will not alter the oscillator's power);  
+- *Phase knob*: controls the oscillator's fundamental component phase in degrees;  
+- *Par1, Par2, Par3 knobs*: control the oscillator's first three harmonics amplitude, up to the value of the first armonic (a value of 1 means the armonic has the same amplitude as the fundamental);  
+- *Attack and Release waveforms*: control the waveforms of the Attack and Release phase of the ADSR envelope filter;  
+- *Attack, Decay and Release knobs*: control the Attack, Decay and Release time in ms (e.g. a value of 1000 means 1000 ms, or 1 second);  
+- *Sustain knob*: controls the Sustain value of the signal, as a percentage value of the maximum value of the fundamental component (e.g. a value of 2 makes the sustain level double the signal's fundamental amplitude).
 
 ## Credits and inspirations
 The whole project has been inspired by @mbuccoli 's [VRMusic](https://github.com/mbuccoli/VRmusic).  
