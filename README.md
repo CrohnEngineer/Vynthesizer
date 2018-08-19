@@ -32,10 +32,10 @@ Here is a short description of what each control does:
 - *Waveform*: controls the oscillator's main waveform;  
 - *Gain knob*: controls the oscillator's gain, defined as the ratio between the input and output signal (e.g. a gain of 1 will not alter the oscillator's power);  
 - *Phase knob*: controls the oscillator's fundamental component phase in degrees;  
-- *Par1, Par2, Par3 knobs*: control the oscillator's first three harmonics amplitude, up to the value of the first armonic (a value of 1 means the armonic has the same amplitude as the fundamental);  
+- *Par1, Par2, Par3 knobs*: control the oscillator's first three harmonics amplitude, up to the value of the fundamental (a value of 1 means the armonic has the same amplitude as the fundamental);  
 - *Attack and Release waveforms*: control the waveforms of the Attack and Release phase of the ADSR envelope filter;  
 - *Attack, Decay and Release knobs*: control the Attack, Decay and Release time in ms (e.g. a value of 1000 means 1000 ms, or 1 second);  
-- *Sustain knob*: controls the Sustain value of the signal, as a percentage value of the maximum value of the fundamental component (e.g. a value of 2 makes the sustain level double the signal's fundamental amplitude).
+- *Sustain knob*: controls the Sustain value of the signal, as a percentage value of the maximum value of the fundamental component (e.g. a value of 2 makes the sustain level doubles the signal's fundamental amplitude).
 
 ## Credits and inspirations
 The whole project has been inspired by @mbuccoli 's [VRMusic](https://github.com/mbuccoli/VRmusic).  
