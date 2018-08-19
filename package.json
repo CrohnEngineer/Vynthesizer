@@ -16,5 +16,6 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.3",
+    "tone": "^0.12.80"
   }
 }
