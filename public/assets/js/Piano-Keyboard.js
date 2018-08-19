@@ -181,7 +181,7 @@ function createKeyboard(range) {
 		if(isKeyPressed(keyboard, index)) {
 			// Already pressed, are we mouseclicking and keyboarding
 			// at the same time?
-			console.log('already pressed', index);
+			//console.log('already pressed', index);
             var evt = makeEvent('notehold', {index:index,frequency:key.dataset.notefrequency});
             keyboard.dispatchEvent(evt);
 			return;

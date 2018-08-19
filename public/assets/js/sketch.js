@@ -1,4 +1,4 @@
-var wv1,wv2,wv3,audioCtx,masterAnalyser,analyser1,analyser2,analyser3,bufferLength,freqs,normFoldSpectrum,bandRatio;
+var wv1,wv2,wv3,audioCtx,masterAnalyser,analyser1,analyser2,analyser3,bufferLength,freqs,normFoldSpectrum;
 
 function setup() {
 
@@ -20,12 +20,10 @@ function setup() {
     analyser3 = audioCtx.createAnalyser(); 
     bufferLength = masterAnalyser.frequencyBinCount;
     normSpectrum = new Uint8Array(bufferLength);
-    bandRatio = 32;
     freqs = [];
     for(i=0;i<masterAnalyser.fftSize/2;i++) {
         freqs[i] = i/(masterAnalyser.fftSize/2-1)*audioCtx.sampleRate/2;
     }
-    //console.log(freqs);
     gainNode1.connect(analyser1);gainNode1.connect(masterAnalyser);
     gainNode2.connect(analyser2);gainNode2.connect(masterAnalyser);
     gainNode3.connect(analyser3);gainNode3.connect(masterAnalyser);

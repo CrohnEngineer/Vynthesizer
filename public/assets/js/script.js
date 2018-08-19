@@ -712,7 +712,7 @@ oscillator3.start();
 /*  Events listeners for notes  */
 
 keyboard.addEventListener('noteon', function(e) {
-    console.log('note start');
+    //console.log('note start');
     if (e.detail.index < 12) {
         var id = "[data-index"+e.detail.index+"]";
         $(id).css("box-shadow", "inset 0px 0px 10px rgba(255, 0, 0, 0.8);");
@@ -731,7 +731,7 @@ keyboard.addEventListener('noteon', function(e) {
 
 
 keyboard.addEventListener('noteoff', function(e) {
-    console.log('note stop');
+    //console.log('note stop');
     if (e.detail.index < 12) {
         env1.triggerRelease();
     } else if (e.detail.index >= 12 && e.detail.index < 24) {
