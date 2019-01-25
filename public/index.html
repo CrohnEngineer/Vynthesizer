@@ -353,6 +353,7 @@
                          e.returnValue=false;
                          e.cancel = true;
                     }
+                    
             };
         </script>
         <script>
@@ -363,6 +364,14 @@
                 
                 //Oscillators controls creation
                 createOscillatorsControls();
+                
+                //Audio context resume for Chrome's audio policy
+                var e = jQuery.Event('page_created');
+                $('body').trigger('page_created');
+                $('body').on('page_created', function() {
+                    console.log('Page created!');
+                    Tone.context.resume();
+                })
                 
             });
         </script>

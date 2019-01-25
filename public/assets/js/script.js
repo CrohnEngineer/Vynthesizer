@@ -713,6 +713,7 @@ oscillator3.start();
 
 keyboard.addEventListener('noteon', function(e) {
     //console.log('note start');
+    Tone.context.resume();
     if (e.detail.index < 12) {
         var id = "[data-index"+e.detail.index+"]";
         $(id).css("box-shadow", "inset 0px 0px 10px rgba(255, 0, 0, 0.8);");
@@ -808,3 +809,14 @@ octavedown.addEventListener('click', function(e) {
     }
 
 });
+
+
+// One-liner to resume playback when user interacted with the page.
+//document.querySelector('button').addEventListener('click', function() {
+//  context.resume().then(() => {
+//      oscillator1.restart();
+//      oscillator2.restart();
+//      oscillator3.restart();
+//      console.log('Playback resumed successfully');
+//  });
+//});
