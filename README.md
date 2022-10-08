@@ -1,4 +1,4 @@
-# Vynthesizer: V(isual Audio S)ynthesizer   :musical_keyboard:
+# Vynthesizer: V(isual Audio S)ynthesizer :musical_keyboard:
 ![Vynthesizer](vynthesizer.png)
 ### Table of contents
 
